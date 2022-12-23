@@ -19,7 +19,7 @@ const getImgPaths = (cate, number) => {
 
 const getLogosPaths = () => {
   let paths = [];
-  for (let i = 1; i <= 33; i++) {
+  for (let i = 1; i <= 35; i++) {
     paths.push(`/assets/imgs/logos/${i}.png`);
   }
   return paths;
