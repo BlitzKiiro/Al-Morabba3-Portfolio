@@ -5,10 +5,12 @@
 body,
 html {
   height: 100%;
+  @apply overflow-x-clip;
 }
 
 body {
   @apply dark:bg-slate-900 bg-gray-100 text-slate-500 dark:text-slate-400;
+  /* @apply lg:bg-[url("/assets/imgs/bg/corner.svg")] bg-no-repeat; */
 }
 
 @font-face {
@@ -22,4 +24,33 @@ body {
 @font-face {
   font-family: poppins;
   src: url(/assets/fonts/Poppins-Regular.ttf);
+}
+
+.ml6 {
+  position: relative;
+}
+
+.ml6 .text-wrapper {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.ml6 .letter {
+  display: inline-block;
+}
+
+.bg-section {
+  @apply grid grid-cols-3 justify-center items-center my-32  md:my-40 p-5  
+  dark:bg-slate-800 dark:text-white bg-gray-300 text-slate-700 py-10;
+}
+
+.section {
+  @apply grid grid-cols-3 justify-center items-center my-32 md:my-40 p-5;
+}
+
+.logo-circle {
+  @apply w-[80px] md:w-[100px];
+  @apply bg-white hover:bg-gray-200 drop-shadow-xl;
+  @apply rounded-full;
 }

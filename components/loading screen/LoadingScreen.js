@@ -1,17 +1,10 @@
-import { useEffect } from "react";
-import { splashAnimation } from "./animations";
-
 const LoadingScreen = () => {
-  useEffect(() => {
-    console.log("fired");
-    splashAnimation();
-  }, []);
   return (
     <div className='splash-screen flex backdrop-blur-xl bg-dark-alpha flex-col items-center justify-center fixed w-full h-full z-50'>
       {/* <!-- loading logo --> */}
       <div className='logo flex flex-col items-center justify-center h-full w-full'>
         {/* <!-- name logo svg --> */}
-        <div className='drawing flex justify-center w-2/3 md:w-1/3'>
+        <div className='drawing flex justify-center w-[80%] md:w-1/3'>
           <svg
             className='w-full '
             version='1.2'
@@ -24,7 +17,7 @@ const LoadingScreen = () => {
               fillRule='evenodd'
               stroke='currentColor'
               strokeWidth='5'
-              className='lines dark:stroke-white stroke-black'
+              className='lines dark:stroke-white stroke-neutral-900'
             >
               <path
                 id='A'
@@ -84,7 +77,7 @@ const LoadingScreen = () => {
           </svg>
         </div>
         {/* <!-- cool quote --> */}
-        <p className='quote-line ont-semibold font-SlimJoe text-black dark:text-white   opacity-0 text-mygrey text-lg '>
+        <p className='quote-line ont-semibold font-SlimJoe text-black dark:text-[#F4F4F4]  opacity-0  text-lg '>
           Marketing Agency
         </p>
       </div>

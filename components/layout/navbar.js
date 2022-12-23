@@ -1,6 +1,6 @@
+/* eslint-disable @next/next/no-img-element */
 /* eslint-disable react/jsx-no-comment-textnodes */
-import { Navbar, Button } from "flowbite-react";
-import { Dropdown } from "flowbite-react";
+import { Navbar, Dropdown } from "flowbite-react";
 import { BsSunFill, BsMoonFill, BsLaptopFill } from "react-icons/bs";
 import useThemeContext from "../../hooks/useThemeContext";
 
@@ -58,14 +58,55 @@ const NavigationBar = () => {
         <Navbar.Toggle />
       </div>
       <Navbar.Collapse>
-        <Navbar.Link href='#' active={true}>
+        <Navbar.Link
+          onClick={() => {
+            smoothScroll("#about", 300, "easeInOutCirc");
+          }}
+          href='#about'
+          active={true}
+        >
           About US
         </Navbar.Link>
-        <Navbar.Link href='#'>Social Designs</Navbar.Link>
-        <Navbar.Link href='#'>Media Production</Navbar.Link>
-        <Navbar.Link href='#'>Brand Identity</Navbar.Link>
-        <Navbar.Link href='#'>Web Design</Navbar.Link>
-        <Navbar.Link href='#'>Our Clients</Navbar.Link>
+        <Navbar.Link
+          href='#social'
+          onClick={() => {
+            smoothScroll("#social", 600, "easeInOutCirc");
+          }}
+        >
+          Social Designs
+        </Navbar.Link>
+        <Navbar.Link
+          href='#media'
+          onClick={() => {
+            smoothScroll("#media", 900, "easeInOutCirc");
+          }}
+        >
+          Media Production
+        </Navbar.Link>
+        <Navbar.Link
+          href='#brand'
+          onClick={() => {
+            smoothScroll("#brand", 1200, "easeInOutCirc");
+          }}
+        >
+          Brand Identity
+        </Navbar.Link>
+        <Navbar.Link
+          href='#web'
+          onClick={() => {
+            smoothScroll("#web", 1500, "easeInOutCirc");
+          }}
+        >
+          Web Design
+        </Navbar.Link>
+        <Navbar.Link
+          href='#clients'
+          onClick={() => {
+            smoothScroll("#clients", 1800, "easeInOutCirc");
+          }}
+        >
+          Our Clients
+        </Navbar.Link>
       </Navbar.Collapse>
     </Navbar>
   );
