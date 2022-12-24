@@ -23,7 +23,7 @@ const WebFooter = () => {
               <Footer.LinkGroup col={true}>
                 <p>Our agent in Saudi Arabia</p>
                 <p>
-                  MAZAG ©{" "}
+                  MAJAZ ©{" "}
                   <img
                     className='inline-block mx-2'
                     src='/assets/imgs/logo/ksa.png'
