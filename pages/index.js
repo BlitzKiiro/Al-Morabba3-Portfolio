@@ -26,6 +26,14 @@ const getLogosPaths = () => {
   return paths;
 };
 
+const getYoutubeList = () => [
+  "https://www.youtube.com/embed/N0APu6p6dYs",
+  "https://www.youtube.com/embed/XUyv1lABJVE",
+  "https://www.youtube.com/embed/aIZcen-S7M0",
+  "https://www.youtube.com/embed/zFMwVJdbbGU",
+  "https://www.youtube.com/embed/jlDeWXC4eu4",
+];
+
 export default function Home() {
   useEffect(() => {
     Aos.init();
@@ -140,16 +148,18 @@ export default function Home() {
             </div>
             <div data-aos='fade-right' className='col-span-3 md:col-span-2 '>
               <div className='h-[180px] md:h-[480px]'>
-                <Carousel slideInterval={5000}>
-                  {getImgPaths("media", 3).map((path, index) => {
+                <Carousel slide={false}>
+                  {getYoutubeList().map((url, index) => {
                     return (
-                      // eslint-disable-next-line @next/next/no-img-element
-                      <img
+                      <iframe
                         key={index}
-                        src={path}
-                        loading='lazy'
-                        alt='slider img'
-                      />
+                        className='h-full w-full'
+                        src={url}
+                        title='YouTube video player'
+                        frameborder='0'
+                        allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+                        allowfullscreen
+                      ></iframe>
                     );
                   })}
                 </Carousel>
