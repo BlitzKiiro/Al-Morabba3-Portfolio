@@ -37,10 +37,11 @@ const splashAnimation = async () => {
     duration: 400,
     easing: "easeInOutQuint",
   });
+
   //end of animation timeline
   await timeline.finished;
-  ///removing splash screen
-  document.querySelector(".splash-screen ").remove();
+  // ///removing splash screen
+  document.querySelector(".splash-screen ").style.display = "none";
 };
 
 const typingAnimation = async () => {

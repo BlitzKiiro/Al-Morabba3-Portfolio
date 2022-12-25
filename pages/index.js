@@ -8,6 +8,7 @@ import "aos/dist/aos.css";
 import Aos from "aos";
 import { useEffect } from "react";
 import { typingAnimation, splashAnimation } from "../animations";
+import AnimatedBg from "../components/svg/animatedbg";
 
 const getImgPaths = (cate, number) => {
   let paths = [];
@@ -48,8 +49,7 @@ export default function Home() {
         </div>
         <div className='sections-container w-full'>
           {/* Welcome Section */}
-          <div className='welcome flex justify-center gap-2  items-center flex-col my-32 md:h-[250px] px-5'>
-            <p className='text-2xl md:text-4xl font-bold'></p>
+          <div className='welcome relative flex justify-center gap-2  items-center flex-col h-[60vh] md:h-screen px-5'>
             <h1 className='ml6'>
               <span className='text-wrapper text-2xl md:text-4xl font-bold'>
                 <span className='letters'>Welcome to Al Morabba3</span>
@@ -69,6 +69,7 @@ export default function Home() {
             >
               Get Started
             </Button>
+            <AnimatedBg className='absolute w-full bottom-0 -z-10 dark:fill-slate-800 fill-gray-300' />
           </div>
           {/* About us section */}
           <div id='about' className='bg-section'>
@@ -210,7 +211,10 @@ export default function Home() {
             </div>
           </div>
           {/* clients section */}
-          <div id='clients' className='section'>
+          <div
+            id='clients'
+            className='grid grid-cols-3 justify-center items-center my-32  md:my-42 p-5'
+          >
             <div data-aos='fade-up' className='col-span-3 text-center mb-8 '>
               <p className='text-xl md:text-3xl font-bold'>Our Clients 🏆</p>
               <p className='text-base md:text-xl'>

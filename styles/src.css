@@ -40,13 +40,13 @@ body {
   display: inline-block;
 }
 
-.bg-section {
-  @apply grid grid-cols-3 justify-center items-center my-32  md:my-40 p-5  
-  dark:bg-slate-800 dark:text-white bg-gray-300 text-slate-700 py-10;
+.section {
+  @apply grid grid-cols-3 content-center items-center h-[70vh]  md:h-screen p-5;
 }
 
-.section {
-  @apply grid grid-cols-3 justify-center items-center my-32 md:my-40 p-5;
+.bg-section {
+  @apply section 
+  dark:bg-slate-800 dark:text-white bg-gray-300 text-slate-700 py-10;
 }
 
 .logo-circle {

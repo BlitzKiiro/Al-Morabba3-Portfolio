@@ -58,27 +58,30 @@ const WebFooter = () => {
             <div>
               <Footer.Title title='Follow us' />
               <Footer.LinkGroup col={true}>
-                <Footer.Link
+                <a
                   target={"_blank"}
                   href='https://www.facebook.com/AlMorabba3.EG'
                   rel='noopener noreferrer'
+                  className='hover:underline'
                 >
                   Facebook
-                </Footer.Link>
-                <Footer.Link
+                </a>
+                <a
                   target={"_blank"}
                   href='https://instagram.com/almorabba3.eg'
                   rel='noopener noreferrer'
+                  className='hover:underline'
                 >
                   Instagram
-                </Footer.Link>
-                <Footer.Link
-                  target={"https://www.youtube.com/c/AlMorabba3MarketingAgency"}
+                </a>
+                <a
+                  target={"_blank"}
                   rel='noopener noreferrer'
-                  href='#'
+                  className='hover:underline'
+                  href='https://www.youtube.com/c/AlMorabba3MarketingAgency'
                 >
                   YouTube
-                </Footer.Link>
+                </a>
               </Footer.LinkGroup>
             </div>
             <div>
