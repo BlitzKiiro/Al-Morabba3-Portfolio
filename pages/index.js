@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import Head from "next/head";
+import Image from "next/image";
 import LoadingScreen from "../components/loading screen/LoadingScreen";
 import NavigationBar from "../components/layout/navbar";
 import WebFooter from "../components/layout/footer";
@@ -239,9 +240,9 @@ export default function Home() {
                     data-aos='zoom-in'
                     duration={(index + 1) * 200}
                     key={index}
-                    className='logo-circle'
+                    className='logo-circle relative'
                   >
-                    <img src={path} alt='client logo' />
+                    <Image fill src={path} alt='client logo' />
                   </div>
                 );
               })}

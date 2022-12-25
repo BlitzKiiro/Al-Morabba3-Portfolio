@@ -50,7 +50,7 @@ body {
 }
 
 .logo-circle {
-  @apply w-[80px] md:w-[100px];
+  @apply w-[80px] md:w-[100px] h-[80px] md:h-[100px];
   @apply bg-white hover:bg-gray-200 drop-shadow-xl;
   @apply rounded-full;
 }

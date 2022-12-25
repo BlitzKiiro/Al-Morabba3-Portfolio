@@ -1484,10 +1484,6 @@ input:checked + .toggle-bg {
   width: 80%;
 }
 
-.w-\[70\%\] {
-  width: 70%;
-}
-
 .max-w-sm {
   max-width: 24rem;
 }
@@ -3147,11 +3143,13 @@ body {
 }
 
 .logo-circle {
+  height: 80px;
   width: 80px;
 }
 
 @media (min-width: 768px) {
   .logo-circle {
+    height: 100px;
     width: 100px;
   }
 }
