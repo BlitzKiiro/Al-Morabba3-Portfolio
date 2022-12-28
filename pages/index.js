@@ -224,7 +224,7 @@ export default function Home() {
           <div id='photography' className='section'>
             <div
               data-aos='fade-left'
-              className='col-span-3 md:col-span-1 text-center  mb-8 '
+              className='col-span-3 md:order-last  md:col-span-1 text-center  mb-8 '
             >
               <p className='text-xl md:text-3xl font-bold'>
                 Photography Studio 📷{" "}
