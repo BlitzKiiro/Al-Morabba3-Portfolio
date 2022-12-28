@@ -100,9 +100,17 @@ const NavigationBar = () => {
           Web Design
         </Navbar.Link>
         <Navbar.Link
+          href='#photography'
+          onClick={() => {
+            smoothScroll("#photography", 1800, "easeInOutCirc");
+          }}
+        >
+          Photography
+        </Navbar.Link>
+        <Navbar.Link
           href='#clients'
           onClick={() => {
-            smoothScroll("#clients", 1800, "easeInOutCirc");
+            smoothScroll("#clients", 2100, "easeInOutCirc");
           }}
         >
           Our Clients

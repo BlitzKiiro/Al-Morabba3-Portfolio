@@ -1,13 +1,6 @@
 const AnimatedBg = (props) => {
   return (
-    <svg
-      aspect-video
-      id='Calque_1'
-      x='0px'
-      y='0px'
-      viewBox='0 0 1300 450'
-      {...props}
-    >
+    <svg id='Calque_1' x='0px' y='0px' viewBox='0 0 1300 450' {...props}>
       <style jsx>
         {`
           .st1 {

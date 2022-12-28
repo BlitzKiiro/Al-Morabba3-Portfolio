@@ -58,7 +58,7 @@ export default function Home() {
         </div>
         <div className='sections-container w-full'>
           {/* Welcome Section */}
-          <div className='welcome relative flex justify-center gap-2  items-center flex-col h-[60vh] md:h-screen px-5'>
+          <div className='welcome relative flex justify-center gap-2  items-center flex-col h-[60vh] md:h-[90vh] px-5'>
             <h1 className='ml6'>
               <span className='text-wrapper text-2xl md:text-4xl font-bold'>
                 <span className='letters'>Welcome to Al Morabba3</span>
@@ -78,7 +78,7 @@ export default function Home() {
             >
               Get Started
             </Button>
-            <AnimatedBg className='absolute w-full bottom-0 -z-10 dark:fill-slate-800 fill-gray-300' />
+            <AnimatedBg className='absolute w-full bottom-0 md:-bottom-10 -z-10 dark:fill-slate-800 fill-gray-300' />
           </div>
           {/* About us section */}
           <div id='about' className='bg-section'>
@@ -157,9 +157,8 @@ export default function Home() {
                         className='h-full w-full'
                         src={url}
                         title='YouTube video player'
-                        frameborder='0'
-                        allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
-                        allowfullscreen
+                        frameBorder='0'
+                        allowFullScreen
                       ></iframe>
                     );
                   })}
@@ -221,10 +220,41 @@ export default function Home() {
               </div>
             </div>
           </div>
+          {/* photography section */}
+          <div id='photography' className='section'>
+            <div
+              data-aos='fade-left'
+              className='col-span-3 md:col-span-1 text-center  mb-8 '
+            >
+              <p className='text-xl md:text-3xl font-bold'>
+                Photography Studio 📷{" "}
+              </p>
+              <p className='text-base md:text-xl'>
+                Exceptional images deserve an exceptional presentation.
+              </p>
+            </div>
+            <div data-aos='fade-right' className='col-span-3 md:col-span-2 '>
+              <div className='h-[180px] md:h-[480px]'>
+                <Carousel slideInterval={5000}>
+                  {getImgPaths("photography", 7).map((path, index) => {
+                    return (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img
+                        key={index}
+                        src={path}
+                        loading='lazy'
+                        alt='slider img'
+                      />
+                    );
+                  })}
+                </Carousel>
+              </div>
+            </div>
+          </div>
           {/* clients section */}
           <div
             id='clients'
-            className='grid grid-cols-3 justify-center items-center my-32  md:my-42 p-5'
+            className='grid grid-cols-3 justify-center items-center py-20 p-5  dark:bg-slate-800 dark:text-white bg-gray-300 text-slate-700'
           >
             <div data-aos='fade-up' className='col-span-3 text-center mb-8 '>
               <p className='text-xl md:text-3xl font-bold'>Our Clients 🏆</p>
@@ -247,7 +277,9 @@ export default function Home() {
                 );
               })}
             </div>
-            {/* End Section */}
+          </div>
+          {/* End Section */}
+          <div className='section'>
             <div
               data-aos='fade-down'
               className='col-span-3 flex justify-center gap-2  items-center flex-col mt-10 md:h-[250px] px-5'
