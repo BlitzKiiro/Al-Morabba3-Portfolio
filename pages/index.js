@@ -81,7 +81,7 @@ export default function Home() {
             >
               Get Started
             </Button>
-            <AnimatedBg className='absolute w-full bottom-0 md:-bottom-10 -z-10 dark:fill-slate-800 fill-gray-300' />
+            <AnimatedBg className='absolute w-full bottom-0 md:-bottom-32 -z-10 dark:fill-slate-800 fill-gray-300' />
           </div>
           {/* About us section */}
           <div id='about' className='bg-section'>
@@ -149,9 +149,12 @@ export default function Home() {
               data-aos='fade-left'
               className='col-span-3 md:col-span-1 text-center  mb-8 '
             >
-              <p className='text-xl md:text-3xl font-bold'>Media 🎬</p>
+              <p className='text-xl md:text-3xl font-bold'>
+                Media production 🎬
+              </p>
+              <p className='text-sm opacity-70 mb-3'> ( videos ) </p>
               <p className='text-base md:text-xl'>
-                Take a look at our media production.
+                Creating Valuable Moments, we Create, You inspire.
               </p>
             </div>
             <div data-aos='fade-right' className='col-span-3 md:col-span-2 '>
@@ -173,23 +176,27 @@ export default function Home() {
               </div>
             </div>
           </div>
-          {/* Brand section */}
-          <div id='brand' className='section'>
+          {/* photography section */}
+          <div id='photography' className='section'>
             <div
               data-aos='fade-left'
-              className='col-span-3 md:order-last md:col-span-1 text-center  mb-8 '
+              className='col-span-3 md:order-last  md:col-span-1 text-center  mb-8 '
             >
-              <p className='text-xl md:text-3xl font-bold'>Brand 🌟</p>
-              <p className='text-base md:text-xl'>Your genuine idendtity</p>
+              <p className='text-xl md:text-3xl font-bold mb-3'>
+                Photography Studio 📷{" "}
+              </p>
+              <p className='text-base md:text-xl'>
+                Exceptional images deserve an exceptional presentation.
+              </p>
             </div>
             <div data-aos='fade-right' className='col-span-3 md:col-span-2 '>
               <div className='h-[180px] md:h-[480px]'>
                 <Carousel slideInterval={5000}>
-                  {getImgPaths("brand", 6).map((path, index) => {
+                  {getImgPaths("photography", 7).map((path, index) => {
                     return (
                       <div className='w-full h-full' key={index}>
                         <Image
-                          alt='almorabba3 branding services'
+                          alt='almorabba3 photgraphy services'
                           src={path}
                           fill
                           placeholder='blur'
@@ -231,27 +238,23 @@ export default function Home() {
               </div>
             </div>
           </div>
-          {/* photography section */}
-          <div id='photography' className='section'>
+          {/* Brand section */}
+          <div id='brand' className='section'>
             <div
               data-aos='fade-left'
-              className='col-span-3 md:order-last  md:col-span-1 text-center  mb-8 '
+              className='col-span-3 md:order-last md:col-span-1 text-center  mb-8 '
             >
-              <p className='text-xl md:text-3xl font-bold'>
-                Photography Studio 📷{" "}
-              </p>
-              <p className='text-base md:text-xl'>
-                Exceptional images deserve an exceptional presentation.
-              </p>
+              <p className='text-xl md:text-3xl font-bold'>Brand 🌟</p>
+              <p className='text-base md:text-xl'>Your genuine idendtity</p>
             </div>
             <div data-aos='fade-right' className='col-span-3 md:col-span-2 '>
               <div className='h-[180px] md:h-[480px]'>
                 <Carousel slideInterval={5000}>
-                  {getImgPaths("photography", 7).map((path, index) => {
+                  {getImgPaths("brand", 6).map((path, index) => {
                     return (
                       <div className='w-full h-full' key={index}>
                         <Image
-                          alt='almorabba3 photgraphy services'
+                          alt='almorabba3 branding services'
                           src={path}
                           fill
                           placeholder='blur'
@@ -264,6 +267,7 @@ export default function Home() {
               </div>
             </div>
           </div>
+
           {/* clients section */}
           <div
             id='clients'
