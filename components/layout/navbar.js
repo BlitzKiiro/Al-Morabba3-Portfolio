@@ -1,11 +1,11 @@
-/* eslint-disable @next/next/no-img-element */
-/* eslint-disable react/jsx-no-comment-textnodes */
 import { Navbar, Dropdown } from "flowbite-react";
 import { BsSunFill, BsMoonFill, BsLaptopFill } from "react-icons/bs";
 import useThemeContext from "../../hooks/useThemeContext";
+import Image from "next/image";
 
 const NavigationBar = () => {
   const { theme, dispatch } = useThemeContext();
+
   const ThemeIcon = () => {
     switch (theme.mode) {
       case "light":
@@ -19,11 +19,14 @@ const NavigationBar = () => {
   return (
     <Navbar fluid={true} rounded={true} color='dark'>
       <Navbar.Brand href='/'>
-        <img
-          src='assets/imgs/logo/icon logo.png'
-          className='mr-3 h-6 sm:h-9'
-          alt='Flowbite Logo'
-        />
+        <div className='mr-3 h-6 w-6 md:h-9 md:w-9 relative'>
+          <Image
+            alt='almorabba3 logo'
+            src={"/assets/imgs/logo/icon logo.png"}
+            fill
+          />
+        </div>
+
         <span className='self-center whitespace-nowrap text-xl font-semibold dark:text-white'>
           Al Morabba3
         </span>

@@ -35,6 +35,9 @@ const getYoutubeList = () => [
   "https://www.youtube.com/embed/jlDeWXC4eu4",
 ];
 
+const placeholder =
+  "data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAb/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWEREiMxUf/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q==";
+
 export default function Home() {
   useEffect(() => {
     Aos.init();
@@ -96,13 +99,15 @@ export default function Home() {
                 <Carousel slideInterval={5000}>
                   {getImgPaths("about", 3).map((path, index) => {
                     return (
-                      // eslint-disable-next-line @next/next/no-img-element
-                      <img
-                        key={index}
-                        src={path}
-                        loading='lazy'
-                        alt='slider img'
-                      />
+                      <div className='w-full h-full' key={index}>
+                        <Image
+                          alt='almorabba3 digital marketing services'
+                          src={path}
+                          fill
+                          placeholder='blur'
+                          blurDataURL={placeholder}
+                        />
+                      </div>
                     );
                   })}
                 </Carousel>
@@ -123,13 +128,15 @@ export default function Home() {
                 <Carousel slideInterval={5000}>
                   {getImgPaths("social", 16).map((path, index) => {
                     return (
-                      // eslint-disable-next-line @next/next/no-img-element
-                      <img
-                        key={index}
-                        src={path}
-                        loading='lazy'
-                        alt='slider img'
-                      />
+                      <div className='w-full h-full' key={index}>
+                        <Image
+                          alt='almorabba3 social marketing'
+                          src={path}
+                          fill
+                          placeholder='blur'
+                          blurDataURL={placeholder}
+                        />
+                      </div>
                     );
                   })}
                 </Carousel>
@@ -180,13 +187,15 @@ export default function Home() {
                 <Carousel slideInterval={5000}>
                   {getImgPaths("brand", 6).map((path, index) => {
                     return (
-                      // eslint-disable-next-line @next/next/no-img-element
-                      <img
-                        key={index}
-                        src={path}
-                        loading='lazy'
-                        alt='slider img'
-                      />
+                      <div className='w-full h-full' key={index}>
+                        <Image
+                          alt='almorabba3 branding services'
+                          src={path}
+                          fill
+                          placeholder='blur'
+                          blurDataURL={placeholder}
+                        />
+                      </div>
                     );
                   })}
                 </Carousel>
@@ -207,13 +216,15 @@ export default function Home() {
                 <Carousel slideInterval={5000}>
                   {getImgPaths("website", 5).map((path, index) => {
                     return (
-                      // eslint-disable-next-line @next/next/no-img-element
-                      <img
-                        key={index}
-                        src={path}
-                        loading='lazy'
-                        alt='slider img'
-                      />
+                      <div className='w-full h-full' key={index}>
+                        <Image
+                          alt='almorabba3 web design and seo services'
+                          src={path}
+                          fill
+                          placeholder='blur'
+                          blurDataURL={placeholder}
+                        />
+                      </div>
                     );
                   })}
                 </Carousel>
@@ -238,13 +249,15 @@ export default function Home() {
                 <Carousel slideInterval={5000}>
                   {getImgPaths("photography", 7).map((path, index) => {
                     return (
-                      // eslint-disable-next-line @next/next/no-img-element
-                      <img
-                        key={index}
-                        src={path}
-                        loading='lazy'
-                        alt='slider img'
-                      />
+                      <div className='w-full h-full' key={index}>
+                        <Image
+                          alt='almorabba3 photgraphy services'
+                          src={path}
+                          fill
+                          placeholder='blur'
+                          blurDataURL={placeholder}
+                        />
+                      </div>
                     );
                   })}
                 </Carousel>
@@ -272,7 +285,7 @@ export default function Home() {
                     key={index}
                     className='logo-circle relative'
                   >
-                    <Image fill src={path} alt='client logo' />
+                    <Image fill priority src={path} alt='client logo' />
                   </div>
                 );
               })}
