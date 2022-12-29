@@ -1,14 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 import Head from "next/head";
 import Image from "next/image";
-import LoadingScreen from "../components/loading screen/LoadingScreen";
-import NavigationBar from "../components/layout/navbar";
-import WebFooter from "../components/layout/footer";
 import { Button, Carousel } from "flowbite-react";
 import "aos/dist/aos.css";
-import Aos from "aos";
-import { useEffect } from "react";
-import { typingAnimation, splashAnimation } from "../animations";
 import AnimatedBg from "../components/svg/animatedbg";
 
 const getImgPaths = (cate, number) => {
@@ -39,13 +33,6 @@ const placeholder =
   "data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAb/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWEREiMxUf/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q==";
 
 export default function Home() {
-  useEffect(() => {
-    Aos.init();
-    splashAnimation().then(() => {
-      typingAnimation();
-    });
-  });
-
   return (
     <>
       <Head>
@@ -54,11 +41,7 @@ export default function Home() {
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <LoadingScreen />
       <main className='flex flex-col items-center pt-5 '>
-        <div className=' w-[90%] '>
-          <NavigationBar />
-        </div>
         <div className='sections-container w-full'>
           {/* Welcome Section */}
           <div className='welcome relative flex justify-center gap-2  items-center flex-col h-[60vh] md:h-[90vh] px-5'>
@@ -99,7 +82,7 @@ export default function Home() {
                 <Carousel slideInterval={5000}>
                   {getImgPaths("about", 3).map((path, index) => {
                     return (
-                      <div className='w-full h-full' key={index}>
+                      <div className='w-full h-full relative' key={index}>
                         <Image
                           alt='almorabba3 digital marketing services'
                           src={path}
@@ -128,7 +111,7 @@ export default function Home() {
                 <Carousel slideInterval={5000}>
                   {getImgPaths("social", 16).map((path, index) => {
                     return (
-                      <div className='w-full h-full' key={index}>
+                      <div className='w-full h-full relative' key={index}>
                         <Image
                           alt='almorabba3 social marketing'
                           src={path}
@@ -194,7 +177,7 @@ export default function Home() {
                 <Carousel slideInterval={5000}>
                   {getImgPaths("photography", 7).map((path, index) => {
                     return (
-                      <div className='w-full h-full' key={index}>
+                      <div className='w-full h-full relative' key={index}>
                         <Image
                           alt='almorabba3 photgraphy services'
                           src={path}
@@ -252,7 +235,7 @@ export default function Home() {
                 <Carousel slideInterval={5000}>
                   {getImgPaths("brand", 6).map((path, index) => {
                     return (
-                      <div className='w-full h-full' key={index}>
+                      <div className='w-full h-full relative' key={index}>
                         <Image
                           alt='almorabba3 branding services'
                           src={path}
@@ -289,7 +272,15 @@ export default function Home() {
                     key={index}
                     className='logo-circle relative'
                   >
-                    <Image fill priority src={path} alt='client logo' />
+                    <Image
+                      fill
+                      src={path}
+                      alt='client logo'
+                      sizes='
+                      (max-width: 768px) 80px,
+                      100px
+                    '
+                    />
                   </div>
                 );
               })}
@@ -319,10 +310,6 @@ export default function Home() {
               </Button>
             </div>
           </div>
-        </div>
-
-        <div className='w-full'>
-          <WebFooter />
         </div>
       </main>
     </>
