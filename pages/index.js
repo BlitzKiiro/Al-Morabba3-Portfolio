@@ -89,6 +89,8 @@ export default function Home() {
                           fill
                           placeholder='blur'
                           blurDataURL={placeholder}
+                          sizes='(max-width: 768px) 90vw,
+                          66vw'
                         />
                       </div>
                     );
@@ -118,6 +120,8 @@ export default function Home() {
                           fill
                           placeholder='blur'
                           blurDataURL={placeholder}
+                          sizes='(max-width: 768px) 90vw,
+                                66vw'
                         />
                       </div>
                     );
@@ -184,6 +188,8 @@ export default function Home() {
                           fill
                           placeholder='blur'
                           blurDataURL={placeholder}
+                          sizes='(max-width: 768px) 90vw,
+                          66vw'
                         />
                       </div>
                     );
@@ -213,6 +219,8 @@ export default function Home() {
                           fill
                           placeholder='blur'
                           blurDataURL={placeholder}
+                          sizes='(max-width: 768px) 90vw,
+                          66vw'
                         />
                       </div>
                     );
@@ -242,6 +250,8 @@ export default function Home() {
                           fill
                           placeholder='blur'
                           blurDataURL={placeholder}
+                          sizes='(max-width: 768px) 90vw,
+                          66vw'
                         />
                       </div>
                     );

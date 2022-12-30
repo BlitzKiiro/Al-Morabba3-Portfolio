@@ -39,6 +39,8 @@ const init = (initialState) => {
 
 const reducer = (state, action) => {
   switch (action.type) {
+    case "init":
+      return init(state);
     case "LIGHT":
       storeTheme("light");
       addThemeToDOM("light");
@@ -51,8 +53,6 @@ const reducer = (state, action) => {
       clearStoredTheme();
       addThemeToDOM(getSystemTheme());
       return { mode: "system" };
-    default:
-      return init(state);
   }
 };
 
