@@ -6,6 +6,7 @@ import { Analytics } from "@vercel/analytics/react";
 import Footer from "../components/layout/footer";
 import Navbar from "../components/layout/navbar";
 import LoadingScreen from "../components/loading screen/LoadingScreen";
+import "aos/dist/aos.css";
 import Aos from "aos";
 import { typingAnimation, splashAnimation } from "../animations";
 

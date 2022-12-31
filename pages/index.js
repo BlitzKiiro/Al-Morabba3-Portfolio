@@ -2,37 +2,30 @@
 import Head from "next/head";
 import Image from "next/image";
 import { Button, Carousel } from "flowbite-react";
-import "aos/dist/aos.css";
 import AnimatedBg from "../components/svg/animatedbg";
 
-const getImgPaths = (cate, number) => {
-  let paths = [];
-  for (let i = 1; i <= number; i++) {
-    paths.push(`/assets/imgs/slider/${cate} (${i}).jpg`);
-  }
-  return paths;
-};
+export async function getServerSideProps(context) {
+  const imgsPaths = await (
+    await fetch(`${process.env.BASEURL}/api/imgs`)
+  ).json();
 
-const getLogosPaths = () => {
-  let paths = [];
-  for (let i = 1; i <= 35; i++) {
-    paths.push(`/assets/imgs/logos/${i}.png`);
-  }
-  return paths;
-};
+  const youtubeList = [
+    "https://www.youtube.com/embed/N0APu6p6dYs",
+    "https://www.youtube.com/embed/XUyv1lABJVE",
+    "https://www.youtube.com/embed/aIZcen-S7M0",
+    "https://www.youtube.com/embed/zFMwVJdbbGU",
+    "https://www.youtube.com/embed/jlDeWXC4eu4",
+  ];
 
-const getYoutubeList = () => [
-  "https://www.youtube.com/embed/N0APu6p6dYs",
-  "https://www.youtube.com/embed/XUyv1lABJVE",
-  "https://www.youtube.com/embed/aIZcen-S7M0",
-  "https://www.youtube.com/embed/zFMwVJdbbGU",
-  "https://www.youtube.com/embed/jlDeWXC4eu4",
-];
+  return {
+    props: { imgsPaths, youtubeList },
+  };
+}
 
 const placeholder =
   "data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAb/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWEREiMxUf/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q==";
 
-export default function Home() {
+export default function Home({ imgsPaths, youtubeList }) {
   return (
     <>
       <Head>
@@ -80,7 +73,7 @@ export default function Home() {
             <div data-aos='fade-right' className='col-span-3 md:col-span-2 '>
               <div className='h-[180px] md:h-[480px] '>
                 <Carousel slideInterval={5000}>
-                  {getImgPaths("about", 3).map((path, index) => {
+                  {imgsPaths.about.map((path, index) => {
                     return (
                       <div className='w-full h-full relative' key={index}>
                         <Image
@@ -111,7 +104,7 @@ export default function Home() {
             <div data-aos='fade-right' className='col-span-3 md:col-span-2 '>
               <div className='h-[180px] md:h-[480px]  overflow-hidden'>
                 <Carousel slideInterval={5000}>
-                  {getImgPaths("social", 16).map((path, index) => {
+                  {imgsPaths.social.map((path, index) => {
                     return (
                       <div className='w-full h-full relative' key={index}>
                         <Image
@@ -147,7 +140,7 @@ export default function Home() {
             <div data-aos='fade-right' className='col-span-3 md:col-span-2 '>
               <div className='h-[180px] md:h-[480px]'>
                 <Carousel slide={false}>
-                  {getYoutubeList().map((url, index) => {
+                  {youtubeList.map((url, index) => {
                     return (
                       <iframe
                         key={index}
@@ -179,7 +172,7 @@ export default function Home() {
             <div data-aos='fade-right' className='col-span-3 md:col-span-2 '>
               <div className='h-[180px] md:h-[480px]'>
                 <Carousel slideInterval={5000}>
-                  {getImgPaths("photography", 7).map((path, index) => {
+                  {imgsPaths.photography.map((path, index) => {
                     return (
                       <div className='w-full h-full relative' key={index}>
                         <Image
@@ -210,7 +203,7 @@ export default function Home() {
             <div data-aos='fade-right' className='col-span-3 md:col-span-2 '>
               <div className='h-[180px] md:h-[480px]'>
                 <Carousel slideInterval={5000}>
-                  {getImgPaths("website", 5).map((path, index) => {
+                  {imgsPaths.web.map((path, index) => {
                     return (
                       <div className='w-full h-full' key={index}>
                         <Image
@@ -241,7 +234,7 @@ export default function Home() {
             <div data-aos='fade-right' className='col-span-3 md:col-span-2 '>
               <div className='h-[180px] md:h-[480px]'>
                 <Carousel slideInterval={5000}>
-                  {getImgPaths("brand", 6).map((path, index) => {
+                  {imgsPaths.brand.map((path, index) => {
                     return (
                       <div className='w-full h-full relative' key={index}>
                         <Image
@@ -274,7 +267,7 @@ export default function Home() {
             </div>
             {/* icons */}
             <div className='col-span-3 flex flex-wrap gap-5 justify-center items-center px-5 mt-5 '>
-              {getLogosPaths().map((path, index) => {
+              {imgsPaths.clientsLogos.map((path, index) => {
                 return (
                   <div
                     data-aos='zoom-in'
