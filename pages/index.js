@@ -76,14 +76,10 @@ export default function Home({ imgsPaths, youtubeList }) {
                   {imgsPaths.about.map((path, index) => {
                     return (
                       <div className='w-full h-full relative' key={index}>
-                        <Image
+                        <img
                           alt='almorabba3 digital marketing services'
                           src={path}
-                          fill
-                          placeholder='blur'
-                          blurDataURL={placeholder}
-                          sizes='(max-width: 768px) 90vw,
-                          66vw'
+                          loading={index === 0 ? "eager" : "lazy"}
                         />
                       </div>
                     );
@@ -107,14 +103,10 @@ export default function Home({ imgsPaths, youtubeList }) {
                   {imgsPaths.social.map((path, index) => {
                     return (
                       <div className='w-full h-full relative' key={index}>
-                        <Image
+                        <img
                           alt='almorabba3 social marketing'
                           src={path}
-                          fill
-                          placeholder='blur'
-                          blurDataURL={placeholder}
-                          sizes='(max-width: 768px) 90vw,
-                                66vw'
+                          loading={index === 0 ? "eager" : "lazy"}
                         />
                       </div>
                     );
@@ -175,14 +167,10 @@ export default function Home({ imgsPaths, youtubeList }) {
                   {imgsPaths.photography.map((path, index) => {
                     return (
                       <div className='w-full h-full relative' key={index}>
-                        <Image
+                        <img
                           alt='almorabba3 photgraphy services'
                           src={path}
-                          fill
-                          placeholder='blur'
-                          blurDataURL={placeholder}
-                          sizes='(max-width: 768px) 90vw,
-                          66vw'
+                          loading={index === 0 ? "eager" : "lazy"}
                         />
                       </div>
                     );
@@ -206,14 +194,10 @@ export default function Home({ imgsPaths, youtubeList }) {
                   {imgsPaths.web.map((path, index) => {
                     return (
                       <div className='w-full h-full' key={index}>
-                        <Image
+                        <img
                           alt='almorabba3 web design and seo services'
                           src={path}
-                          fill
-                          placeholder='blur'
-                          blurDataURL={placeholder}
-                          sizes='(max-width: 768px) 90vw,
-                          66vw'
+                          loading={index === 0 ? "eager" : "lazy"}
                         />
                       </div>
                     );
@@ -275,14 +259,11 @@ export default function Home({ imgsPaths, youtubeList }) {
                     key={index}
                     className='logo-circle relative'
                   >
-                    <Image
+                    <img
                       fill
                       src={path}
                       alt='client logo'
-                      sizes='
-                      (max-width: 768px) 80px,
-                      100px
-                    '
+                      loading={index === 0 ? "eager" : "lazy"}
                     />
                   </div>
                 );
