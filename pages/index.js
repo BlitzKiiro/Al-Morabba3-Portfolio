@@ -221,14 +221,10 @@ export default function Home({ imgsPaths, youtubeList }) {
                   {imgsPaths.brand.map((path, index) => {
                     return (
                       <div className='w-full h-full relative' key={index}>
-                        <Image
+                        <img
                           alt='almorabba3 branding services'
                           src={path}
-                          fill
-                          placeholder='blur'
-                          blurDataURL={placeholder}
-                          sizes='(max-width: 768px) 90vw,
-                          66vw'
+                          loading={index === 0 ? "eager" : "lazy"}
                         />
                       </div>
                     );
