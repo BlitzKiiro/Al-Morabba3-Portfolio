@@ -3,7 +3,16 @@ import Head from "next/head";
 import Image from "next/image";
 import { Button, Carousel } from "flowbite-react";
 import AnimatedBg from "../components/svg/animatedbg";
-import { isIOS, isFirefox, isIE } from "react-device-detect";
+import {
+  isIOS,
+  isFirefox,
+  isIE,
+  isIOS13,
+  isIPhone13,
+  isIPad13,
+  isSafari,
+  isMobileSafari,
+} from "react-device-detect";
 
 export async function getStaticProps(context) {
   const imgsPaths = await (
@@ -23,7 +32,15 @@ export async function getStaticProps(context) {
   };
 }
 
-const noLazySupport = isIOS || isIE || isFirefox;
+const noLazySupport =
+  isIOS ||
+  isFirefox ||
+  isIE ||
+  isIOS13 ||
+  isIPhone13 ||
+  isIPad13 ||
+  isSafari ||
+  isMobileSafari;
 
 export default function Home({ imgsPaths, youtubeList }) {
   return (
@@ -37,6 +54,7 @@ export default function Home({ imgsPaths, youtubeList }) {
       <main className='flex flex-col items-center pt-5 '>
         <div className='sections-container w-full'>
           {/* Welcome Section */}
+          <h1></h1>
           <div className='welcome relative flex justify-center gap-2  items-center flex-col h-[60vh] md:h-[90vh] px-5'>
             <h1 className='ml6'>
               <span className='text-wrapper text-2xl md:text-4xl font-bold'>
