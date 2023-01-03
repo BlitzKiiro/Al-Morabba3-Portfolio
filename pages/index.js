@@ -4,7 +4,7 @@ import Image from "next/image";
 import { Button, Carousel } from "flowbite-react";
 import AnimatedBg from "../components/svg/animatedbg";
 
-export async function getServerSideProps(context) {
+export async function getStaticProps(context) {
   const imgsPaths = await (
     await fetch(`${process.env.BASEURL}/api/imgs`)
   ).json();
@@ -21,9 +21,6 @@ export async function getServerSideProps(context) {
     props: { imgsPaths, youtubeList },
   };
 }
-
-const placeholder =
-  "data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAb/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWEREiMxUf/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q==";
 
 export default function Home({ imgsPaths, youtubeList }) {
   return (
@@ -72,7 +69,15 @@ export default function Home({ imgsPaths, youtubeList }) {
             </div>
             <div data-aos='fade-right' className='col-span-3 md:col-span-2 '>
               <div className='h-[180px] md:h-[480px] '>
-                <Carousel slideInterval={5000}>
+                <div className='-z-10 absolute w-full h-full flex items-center justify-center'>
+                  <div className='lds-ring -z-10'>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                  </div>
+                </div>
+                <Carousel slide={false}>
                   {imgsPaths.about.map((path, index) => {
                     return (
                       <div className='w-full h-full relative' key={index}>
@@ -99,7 +104,15 @@ export default function Home({ imgsPaths, youtubeList }) {
             </div>
             <div data-aos='fade-right' className='col-span-3 md:col-span-2 '>
               <div className='h-[180px] md:h-[480px]  overflow-hidden'>
-                <Carousel slideInterval={5000}>
+                <div className='-z-10 absolute w-full h-full flex items-center justify-center'>
+                  <div className='lds-ring -z-10'>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                  </div>
+                </div>
+                <Carousel slide={false}>
                   {imgsPaths.social.map((path, index) => {
                     return (
                       <div className='w-full h-full relative' key={index}>
@@ -131,6 +144,14 @@ export default function Home({ imgsPaths, youtubeList }) {
             </div>
             <div data-aos='fade-right' className='col-span-3 md:col-span-2 '>
               <div className='h-[180px] md:h-[480px]'>
+                <div className='-z-10 absolute w-full h-full flex items-center justify-center'>
+                  <div className='lds-ring -z-10'>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                  </div>
+                </div>
                 <Carousel slide={false}>
                   {youtubeList.map((url, index) => {
                     return (
@@ -163,7 +184,15 @@ export default function Home({ imgsPaths, youtubeList }) {
             </div>
             <div data-aos='fade-right' className='col-span-3 md:col-span-2 '>
               <div className='h-[180px] md:h-[480px]'>
-                <Carousel slideInterval={5000}>
+                <div className='-z-10 absolute w-full h-full flex items-center justify-center'>
+                  <div className='lds-ring -z-10'>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                  </div>
+                </div>
+                <Carousel slide={false}>
                   {imgsPaths.photography.map((path, index) => {
                     return (
                       <div className='w-full h-full relative' key={index}>
@@ -190,7 +219,15 @@ export default function Home({ imgsPaths, youtubeList }) {
             </div>
             <div data-aos='fade-right' className='col-span-3 md:col-span-2 '>
               <div className='h-[180px] md:h-[480px]'>
-                <Carousel slideInterval={5000}>
+                <div className='-z-10 absolute w-full h-full flex items-center justify-center'>
+                  <div className='lds-ring -z-10'>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                  </div>
+                </div>
+                <Carousel slide={false}>
                   {imgsPaths.web.map((path, index) => {
                     return (
                       <div className='w-full h-full' key={index}>
@@ -217,7 +254,15 @@ export default function Home({ imgsPaths, youtubeList }) {
             </div>
             <div data-aos='fade-right' className='col-span-3 md:col-span-2 '>
               <div className='h-[180px] md:h-[480px]'>
-                <Carousel slideInterval={5000}>
+                <div className='-z-10 absolute w-full h-full flex items-center justify-center'>
+                  <div className='lds-ring -z-10'>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                  </div>
+                </div>
+                <Carousel slide={false}>
                   {imgsPaths.brand.map((path, index) => {
                     return (
                       <div className='w-full h-full relative' key={index}>
@@ -255,12 +300,7 @@ export default function Home({ imgsPaths, youtubeList }) {
                     key={index}
                     className='logo-circle relative'
                   >
-                    <img
-                      fill
-                      src={path}
-                      alt='client logo'
-                      loading={index === 0 ? "eager" : "lazy"}
-                    />
+                    <img src={path} alt='client logo' />
                   </div>
                 );
               })}

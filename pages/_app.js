@@ -1,4 +1,5 @@
 import "../styles/globals.css";
+import "../styles/cssloaders.css";
 import { useEffect } from "react";
 import ThemeContextProvider from "../context/ThemeContext";
 import Script from "next/script";
