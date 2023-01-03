@@ -3,16 +3,6 @@ import Head from "next/head";
 import Image from "next/image";
 import { Button, Carousel } from "flowbite-react";
 import AnimatedBg from "../components/svg/animatedbg";
-import {
-  isIOS,
-  isFirefox,
-  isIE,
-  isIOS13,
-  isIPhone13,
-  isIPad13,
-  isSafari,
-  isMobileSafari,
-} from "react-device-detect";
 
 export async function getStaticProps(context) {
   const imgsPaths = await (
@@ -31,16 +21,6 @@ export async function getStaticProps(context) {
     props: { imgsPaths, youtubeList },
   };
 }
-
-const noLazySupport =
-  isIOS ||
-  isFirefox ||
-  isIE ||
-  isIOS13 ||
-  isIPhone13 ||
-  isIPad13 ||
-  isSafari ||
-  isMobileSafari;
 
 export default function Home({ imgsPaths, youtubeList }) {
   return (
@@ -105,9 +85,6 @@ export default function Home({ imgsPaths, youtubeList }) {
                         <img
                           alt='almorabba3 digital marketing services'
                           src={path}
-                          loading={
-                            index === 0 || noLazySupport ? "eager" : "lazy"
-                          }
                         />
                       </div>
                     );
@@ -139,13 +116,7 @@ export default function Home({ imgsPaths, youtubeList }) {
                   {imgsPaths.social.map((path, index) => {
                     return (
                       <div className='w-full h-full relative' key={index}>
-                        <img
-                          alt='almorabba3 social marketing'
-                          src={path}
-                          loading={
-                            index === 0 || noLazySupport ? "eager" : "lazy"
-                          }
-                        />
+                        <img alt='almorabba3 social marketing' src={path} />
                       </div>
                     );
                   })}
@@ -221,13 +192,7 @@ export default function Home({ imgsPaths, youtubeList }) {
                   {imgsPaths.photography.map((path, index) => {
                     return (
                       <div className='w-full h-full relative' key={index}>
-                        <img
-                          alt='almorabba3 photgraphy services'
-                          src={path}
-                          loading={
-                            index === 0 || noLazySupport ? "eager" : "lazy"
-                          }
-                        />
+                        <img alt='almorabba3 photgraphy services' src={path} />
                       </div>
                     );
                   })}
@@ -261,9 +226,6 @@ export default function Home({ imgsPaths, youtubeList }) {
                         <img
                           alt='almorabba3 web design and seo services'
                           src={path}
-                          loading={
-                            index === 0 || noLazySupport ? "eager" : "lazy"
-                          }
                         />
                       </div>
                     );
@@ -295,13 +257,7 @@ export default function Home({ imgsPaths, youtubeList }) {
                   {imgsPaths.brand.map((path, index) => {
                     return (
                       <div className='w-full h-full relative' key={index}>
-                        <img
-                          alt='almorabba3 branding services'
-                          src={path}
-                          loading={
-                            index === 0 || noLazySupport ? "eager" : "lazy"
-                          }
-                        />
+                        <img alt='almorabba3 branding services' src={path} />
                       </div>
                     );
                   })}
