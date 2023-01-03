@@ -3,6 +3,7 @@ import Head from "next/head";
 import Image from "next/image";
 import { Button, Carousel } from "flowbite-react";
 import AnimatedBg from "../components/svg/animatedbg";
+import { isIOS, isFirefox, isIE } from "react-device-detect";
 
 export async function getStaticProps(context) {
   const imgsPaths = await (
@@ -21,6 +22,8 @@ export async function getStaticProps(context) {
     props: { imgsPaths, youtubeList },
   };
 }
+
+const noLazySupport = isIOS || isIE || isFirefox;
 
 export default function Home({ imgsPaths, youtubeList }) {
   return (
@@ -84,7 +87,9 @@ export default function Home({ imgsPaths, youtubeList }) {
                         <img
                           alt='almorabba3 digital marketing services'
                           src={path}
-                          loading={index === 0 ? "eager" : "lazy"}
+                          loading={
+                            index === 0 || noLazySupport ? "eager" : "lazy"
+                          }
                         />
                       </div>
                     );
@@ -119,7 +124,9 @@ export default function Home({ imgsPaths, youtubeList }) {
                         <img
                           alt='almorabba3 social marketing'
                           src={path}
-                          loading={index === 0 ? "eager" : "lazy"}
+                          loading={
+                            index === 0 || noLazySupport ? "eager" : "lazy"
+                          }
                         />
                       </div>
                     );
@@ -199,7 +206,9 @@ export default function Home({ imgsPaths, youtubeList }) {
                         <img
                           alt='almorabba3 photgraphy services'
                           src={path}
-                          loading={index === 0 ? "eager" : "lazy"}
+                          loading={
+                            index === 0 || noLazySupport ? "eager" : "lazy"
+                          }
                         />
                       </div>
                     );
@@ -234,7 +243,9 @@ export default function Home({ imgsPaths, youtubeList }) {
                         <img
                           alt='almorabba3 web design and seo services'
                           src={path}
-                          loading={index === 0 ? "eager" : "lazy"}
+                          loading={
+                            index === 0 || noLazySupport ? "eager" : "lazy"
+                          }
                         />
                       </div>
                     );
@@ -269,7 +280,9 @@ export default function Home({ imgsPaths, youtubeList }) {
                         <img
                           alt='almorabba3 branding services'
                           src={path}
-                          loading={index === 0 ? "eager" : "lazy"}
+                          loading={
+                            index === 0 || noLazySupport ? "eager" : "lazy"
+                          }
                         />
                       </div>
                     );
