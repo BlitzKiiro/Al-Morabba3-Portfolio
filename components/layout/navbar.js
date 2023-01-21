@@ -2,9 +2,11 @@ import { Navbar, Dropdown } from "flowbite-react";
 import { BsSunFill, BsMoonFill, BsLaptopFill } from "react-icons/bs";
 import useThemeContext from "../../hooks/useThemeContext";
 import Image from "next/image";
+import { useTranslation } from "react-i18next";
 
 const NavigationBar = () => {
   const { theme, dispatch } = useThemeContext();
+  const { t } = useTranslation();
 
   const ThemeIcon = () => {
     switch (theme.mode) {
@@ -29,8 +31,11 @@ const NavigationBar = () => {
             />
           </div>
 
-          <span className='self-center whitespace-nowrap text-xl font-semibold dark:text-white'>
-            Al Morabba3
+          <span
+            className='self-center whitespace-nowrap text-xl font-semibold dark:text-white 
+          rtl:mr-1'
+          >
+            {t("Al Morabba3")}
           </span>
         </Navbar.Brand>
         <div className='flex md:order-2'>
@@ -40,37 +45,41 @@ const NavigationBar = () => {
                 dispatch({ type: "LIGHT" });
               }}
               icon={BsSunFill}
+              className=' rtl:gap-2'
             >
-              Light{" "}
+              {t("Light")}
             </Dropdown.Item>
             <Dropdown.Item
               onClick={() => {
                 dispatch({ type: "DARK" });
               }}
               icon={BsMoonFill}
+              className=' rtl:gap-2'
             >
-              Dark
+              {t("Dark")}
             </Dropdown.Item>
             <Dropdown.Item
               onClick={() => {
                 dispatch({ type: "SYSTEM" });
               }}
               icon={BsLaptopFill}
+              className=' rtl:gap-2'
             >
-              System
+              {t("System")}
             </Dropdown.Item>
           </Dropdown>
           <Navbar.Toggle />
         </div>
         <Navbar.Collapse>
           <Navbar.Link
+            className='md:rtl:ml-7'
             onClick={() => {
               smoothScroll("#about", 300, "easeInOutCirc");
             }}
             href='#about'
             active={true}
           >
-            About US
+            {t("About US")}
           </Navbar.Link>
           <Navbar.Link
             href='#social'
@@ -78,7 +87,7 @@ const NavigationBar = () => {
               smoothScroll("#social", 600, "easeInOutCirc");
             }}
           >
-            Social Designs
+            {t("Social Designs")}
           </Navbar.Link>
           <Navbar.Link
             href='#media'
@@ -86,7 +95,7 @@ const NavigationBar = () => {
               smoothScroll("#media", 900, "easeInOutCirc");
             }}
           >
-            Media Production
+            {t("Media production")}
           </Navbar.Link>
           <Navbar.Link
             href='#brand'
@@ -94,7 +103,7 @@ const NavigationBar = () => {
               smoothScroll("#brand", 1200, "easeInOutCirc");
             }}
           >
-            Brand Identity
+            {t("Brand Identity")}
           </Navbar.Link>
           <Navbar.Link
             href='#web'
@@ -102,7 +111,7 @@ const NavigationBar = () => {
               smoothScroll("#web", 1500, "easeInOutCirc");
             }}
           >
-            Web Design
+            {t("Web Design")}
           </Navbar.Link>
           <Navbar.Link
             href='#photography'
@@ -110,7 +119,7 @@ const NavigationBar = () => {
               smoothScroll("#photography", 1800, "easeInOutCirc");
             }}
           >
-            Photography
+            {t("Photography")}
           </Navbar.Link>
           <Navbar.Link
             href='#clients'
@@ -118,7 +127,7 @@ const NavigationBar = () => {
               smoothScroll("#clients", 2100, "easeInOutCirc");
             }}
           >
-            Our Clients
+            {t("Our Clients")}
           </Navbar.Link>
         </Navbar.Collapse>
       </Navbar>

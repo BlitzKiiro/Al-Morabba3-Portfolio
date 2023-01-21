@@ -3,6 +3,7 @@ import Head from "next/head";
 import Image from "next/image";
 import { Button, Carousel } from "flowbite-react";
 import AnimatedBg from "../components/svg/animatedbg";
+import { useTranslation } from "react-i18next";
 
 export async function getStaticProps(context) {
   const imgsPaths = await (
@@ -23,6 +24,7 @@ export async function getStaticProps(context) {
 }
 
 export default function Home({ imgsPaths, youtubeList }) {
+  const { t } = useTranslation();
   return (
     <>
       <Head>
@@ -34,28 +36,28 @@ export default function Home({ imgsPaths, youtubeList }) {
       <main className='flex flex-col items-center pt-5 '>
         <div className='sections-container w-full'>
           {/* Welcome Section */}
-          <h1></h1>
+
           <div className='welcome relative flex justify-center gap-2  items-center flex-col h-[60vh] md:h-[90vh] px-5'>
             <h1 className='ml6'>
-              <span className='text-wrapper text-2xl md:text-4xl font-bold'>
-                <span className='letters'>Welcome to Al Morabba3</span>
-                <span className='wave opacity-0'> 👋 </span>
+              <span className='text-wrapper text-2xl md:text-4xl font-bold rtl:leading-[50px]'>
+                <span className='letters'>{t("Welcome to Al Morabba3")}</span>
+                <span className='wave opacity-1'> 👋 </span>
               </span>
             </h1>
             <p className='text-base md:text-xl'>
               {" "}
-              Take a tour around our website
+              {t("Take a tour around our website")}
             </p>
             <Button
               onClick={() => {
                 smoothScroll("#about", 300, "easeInOutCirc");
               }}
-              className='my-3'
+              className='my-3 w-[120px]'
               gradientDuoTone='purpleToBlue'
             >
-              Get Started
+              {t("Get Started")}
             </Button>
-            <AnimatedBg className='absolute w-full bottom-0 md:-bottom-32 -z-10 dark:fill-slate-800 fill-gray-300' />
+            {/* <AnimatedBg className='absolute w-full bottom-0 md:-bottom-32 -z-10 dark:fill-slate-800 fill-gray-300' /> */}
           </div>
           {/* About us section */}
           <div id='about' className='bg-section'>
@@ -64,9 +66,11 @@ export default function Home({ imgsPaths, youtubeList }) {
               className='col-span-3 md:col-span-1 text-center  mb-8 '
             >
               <p className='text-xl md:text-3xl font-bold'>
-                What is Al Morabba3 ?
+                {t("What is Al Morabba3 ?")}
               </p>
-              <p className='text-base md:text-xl'>What we can offer you.</p>
+              <p className='text-base md:text-xl'>
+                {t("What we can offer you.")}
+              </p>
             </div>
             <div data-aos='fade-right' className='col-span-3 md:col-span-2 '>
               <div className='h-[180px] md:h-[480px] '>
@@ -78,7 +82,7 @@ export default function Home({ imgsPaths, youtubeList }) {
                     <div></div>
                   </div>
                 </div>
-                <Carousel slide={false}>
+                <Carousel dir='ltr' slide={false}>
                   {imgsPaths.about.map((path, index) => {
                     return (
                       <div className='w-full h-full relative' key={index}>
@@ -99,8 +103,12 @@ export default function Home({ imgsPaths, youtubeList }) {
               data-aos='fade-left'
               className='col-span-3 md:order-last md:col-span-1 text-center  mb-8 '
             >
-              <p className='text-xl md:text-3xl font-bold'>Social Media 🤳</p>
-              <p className='text-base md:text-xl'>Our social media designs</p>
+              <p className='text-xl md:text-3xl font-bold'>
+                {t("Social Media")} 🤳
+              </p>
+              <p className='text-base md:text-xl'>
+                {t("Our social media designs")}
+              </p>
             </div>
             <div data-aos='fade-right' className='col-span-3 md:col-span-2 '>
               <div className='h-[180px] md:h-[480px]  overflow-hidden'>
@@ -112,7 +120,7 @@ export default function Home({ imgsPaths, youtubeList }) {
                     <div></div>
                   </div>
                 </div>
-                <Carousel slide={false}>
+                <Carousel dir='ltr' slide={false}>
                   {imgsPaths.social.map((path, index) => {
                     return (
                       <div className='w-full h-full relative' key={index}>
@@ -131,11 +139,11 @@ export default function Home({ imgsPaths, youtubeList }) {
               className='col-span-3 md:col-span-1 text-center  mb-8 '
             >
               <p className='text-xl md:text-3xl font-bold'>
-                Media production 🎬
+                {t("Media production")} 🎬
               </p>
               <p className='text-sm opacity-70 mb-3'> ( videos ) </p>
               <p className='text-base md:text-xl'>
-                Creating Valuable Moments, we Create, You inspire.
+                {t("Creating Valuable Moments, We create, You inspire.")}
               </p>
             </div>
             <div data-aos='fade-right' className='col-span-3 md:col-span-2 '>
@@ -148,7 +156,7 @@ export default function Home({ imgsPaths, youtubeList }) {
                     <div></div>
                   </div>
                 </div>
-                <Carousel slide={false}>
+                <Carousel dir='ltr' slide={false}>
                   {youtubeList.map((url, index) => {
                     return (
                       <iframe
@@ -172,10 +180,10 @@ export default function Home({ imgsPaths, youtubeList }) {
               className='col-span-3 md:order-last  md:col-span-1 text-center  mb-8 '
             >
               <p className='text-xl md:text-3xl font-bold mb-3'>
-                Photography Studio 📷{" "}
+                {t("Photography Studio")} 📷{" "}
               </p>
               <p className='text-base md:text-xl'>
-                Exceptional images deserve an exceptional presentation.
+                {t("Exceptional images deserve an exceptional presentation.")}
               </p>
             </div>
             <div data-aos='fade-right' className='col-span-3 md:col-span-2 '>
@@ -188,7 +196,7 @@ export default function Home({ imgsPaths, youtubeList }) {
                     <div></div>
                   </div>
                 </div>
-                <Carousel slide={false}>
+                <Carousel dir='ltr' slide={false}>
                   {imgsPaths.photography.map((path, index) => {
                     return (
                       <div className='w-full h-full relative' key={index}>
@@ -206,8 +214,12 @@ export default function Home({ imgsPaths, youtubeList }) {
               data-aos='fade-left'
               className='col-span-3 md:col-span-1 text-center  mb-8 '
             >
-              <p className='text-xl md:text-3xl font-bold'>Web Design 🧑‍💻 </p>
-              <p className='text-base md:text-xl'>Development, design & SEO</p>
+              <p className='text-xl md:text-3xl font-bold'>
+                {t("Web Design")} 🧑‍💻{" "}
+              </p>
+              <p className='text-base md:text-xl'>
+                {t("Development, design & SEO")}
+              </p>
             </div>
             <div data-aos='fade-right' className='col-span-3 md:col-span-2 '>
               <div className='h-[180px] md:h-[480px]'>
@@ -219,7 +231,7 @@ export default function Home({ imgsPaths, youtubeList }) {
                     <div></div>
                   </div>
                 </div>
-                <Carousel slide={false}>
+                <Carousel dir='ltr' slide={false}>
                   {imgsPaths.web.map((path, index) => {
                     return (
                       <div className='w-full h-full' key={index}>
@@ -240,8 +252,10 @@ export default function Home({ imgsPaths, youtubeList }) {
               data-aos='fade-left'
               className='col-span-3 md:order-last md:col-span-1 text-center  mb-8 '
             >
-              <p className='text-xl md:text-3xl font-bold'>Brand 🌟</p>
-              <p className='text-base md:text-xl'>Your genuine idendtity</p>
+              <p className='text-xl md:text-3xl font-bold'>{t("Brand")} 🌟</p>
+              <p className='text-base md:text-xl'>
+                {t("Your genuine idendtity")}
+              </p>
             </div>
             <div data-aos='fade-right' className='col-span-3 md:col-span-2 '>
               <div className='h-[180px] md:h-[480px]'>
@@ -253,7 +267,7 @@ export default function Home({ imgsPaths, youtubeList }) {
                     <div></div>
                   </div>
                 </div>
-                <Carousel slide={false}>
+                <Carousel dir='ltr' slide={false}>
                   {imgsPaths.brand.map((path, index) => {
                     return (
                       <div className='w-full h-full relative' key={index}>
@@ -272,9 +286,11 @@ export default function Home({ imgsPaths, youtubeList }) {
             className='grid grid-cols-3 justify-center items-center py-20 p-5  dark:bg-slate-800 dark:text-white bg-gray-300 text-slate-700'
           >
             <div data-aos='fade-up' className='col-span-3 text-center mb-8 '>
-              <p className='text-xl md:text-3xl font-bold'>Our Clients 🏆</p>
+              <p className='text-xl md:text-3xl font-bold'>
+                {t("Our Clients")} 🏆
+              </p>
               <p className='text-base md:text-xl'>
-                We serve a discerning clientele
+                {t("We serve a discerning clientele")}
               </p>
             </div>
             {/* icons */}
@@ -299,9 +315,11 @@ export default function Home({ imgsPaths, youtubeList }) {
               data-aos='fade-down'
               className='col-span-3 flex justify-center gap-2  items-center flex-col mt-10 md:h-[250px] px-5'
             >
-              <p className='text-2xl md:text-4xl font-bold'>Choose Us 🤝</p>
+              <p className='text-2xl md:text-4xl font-bold'>
+                {t("Choose Us")} 🤝
+              </p>
               <p className='text-base md:text-xl'>
-                We gurantee you the best service.
+                {t("We gurantee you the best service.")}
               </p>
               <Button
                 onClick={() => {
@@ -313,7 +331,7 @@ export default function Home({ imgsPaths, youtubeList }) {
                 className='my-3'
                 gradientDuoTone='cyanToBlue'
               >
-                Request our service
+                {t("Request our service")}
               </Button>
             </div>
           </div>

@@ -8,7 +8,7 @@ const splashAnimation = async () => {
     targets: ".drawing .lines path",
     strokeDashoffset: [anime.setDashoffset, 0],
     easing: "easeInOutSine",
-    duration: 1500,
+    duration: 1200,
     delay: function (el, i) {
       return i * 250;
     },
@@ -47,6 +47,7 @@ const splashAnimation = async () => {
 const typingAnimation = async () => {
   // Wrap every letter in a span
   var textWrapper = document.querySelector(".ml6 .letters");
+  if (!textWrapper) return;
   textWrapper.innerHTML = textWrapper.textContent.replace(
     /\S/g,
     "<span class='letter'>$&</span>"

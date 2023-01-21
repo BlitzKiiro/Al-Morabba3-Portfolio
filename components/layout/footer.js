@@ -2,8 +2,11 @@
 /* eslint-disable jsx-a11y/alt-text */
 import { Footer, Tooltip } from "flowbite-react";
 import { BsFacebook, BsYoutube, BsInstagram } from "react-icons/bs";
+import { useTranslation } from "react-i18next";
 
 const WebFooter = () => {
+  const { t } = useTranslation();
+
   return (
     <Footer container={true}>
       <div className='w-full'>
@@ -13,17 +16,17 @@ const WebFooter = () => {
               href='#'
               src='/assets/imgs/logo/icon logo.png'
               alt='LOGO'
-              name='AL MORABBA3'
+              name={t("AL MORABBA3")}
             />
           </div>
           <div className='grid grid-cols-2 gap-8 sm:mt-4 sm:grid-cols-3 sm:gap-6'>
             <div>
-              <Footer.Title title='Our KSA Associate' />
+              <Footer.Title title={t("Our KSA Associate")} />
 
               <Footer.LinkGroup col={true}>
-                <p>Our agent in Saudi Arabia</p>
+                <p>{t("Our agent in Saudi Arabia")}</p>
                 <p>
-                  MAJAZ ©{" "}
+                  نظم مارس ©{" "}
                   <img
                     className='inline-block mx-2'
                     src='/assets/imgs/logo/ksa.png'
@@ -49,14 +52,14 @@ const WebFooter = () => {
                         }
                       }}
                     >
-                      Phone: +9660531342545
+                      {t("Phone: +9660531342545")}
                     </button>
                   </Tooltip>
                 </Footer.Link>
               </Footer.LinkGroup>
             </div>
             <div>
-              <Footer.Title title='Follow us' />
+              <Footer.Title title={t("Follow us")} />
               <Footer.LinkGroup col={true}>
                 <a
                   target={"_blank"}
@@ -64,7 +67,7 @@ const WebFooter = () => {
                   rel='noopener noreferrer'
                   className='hover:underline'
                 >
-                  Facebook
+                  {t("Facebook")}
                 </a>
                 <a
                   target={"_blank"}
@@ -72,7 +75,7 @@ const WebFooter = () => {
                   rel='noopener noreferrer'
                   className='hover:underline'
                 >
-                  Instagram
+                  {t("Instagram")}
                 </a>
                 <a
                   target={"_blank"}
@@ -80,14 +83,14 @@ const WebFooter = () => {
                   className='hover:underline'
                   href='https://www.youtube.com/c/AlMorabba3MarketingAgency'
                 >
-                  YouTube
+                  {t("YouTube")}
                 </a>
               </Footer.LinkGroup>
             </div>
             <div>
-              <Footer.Title title='Contact Us' />
+              <Footer.Title title={t("Contact Us")} />
               <Footer.LinkGroup col={true}>
-                <Footer.Link>
+                <Footer.Link className='rtl:mr-0'>
                   <Tooltip
                     trigger='click'
                     animation='duration-500'
@@ -124,8 +127,11 @@ const WebFooter = () => {
         </div>
         <Footer.Divider />
         <div className='w-full sm:flex sm:items-center sm:justify-between'>
-          <Footer.Copyright href='#' by='Al Morabba3™' year={2023} />
-          <div className='mt-4 flex space-x-6 sm:mt-0 sm:justify-center'>
+          <Footer.Copyright href='#' by={t("Al Morabba3™")} year={2023} />
+          <div
+            dir='ltr'
+            className='mt-4  flex space-x-6 sm:mt-0  sm:justify-center'
+          >
             <Footer.Icon
               href='https://www.facebook.com/AlMorabba3.EG'
               icon={BsFacebook}
